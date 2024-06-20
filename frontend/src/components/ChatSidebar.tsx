@@ -1,11 +1,11 @@
-import DocumentDetail from "./DocumentDetail";
-import { Conversation } from "../common/types";
-import { getDateTime } from "../common/utilities";
-import { Params } from "react-router-dom";
 import {
   ChatBubbleLeftRightIcon,
   PlusCircleIcon,
 } from "@heroicons/react/24/outline";
+import { Params } from "react-router-dom";
+import { Conversation } from "../common/types";
+import { getDateTime } from "../common/utilities";
+import DocumentDetail from "./DocumentDetail";
 
 interface ChatSidebarProps {
   conversation: Conversation;

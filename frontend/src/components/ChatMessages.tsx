@@ -20,16 +20,16 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
   handleKeyPress,
 }) => {
   return (
-    <div className="flex flex-col justify-between h-full overflow-y-auto col-span-8 p-5 border-l border-gray-200">
-      <div className="pb-5">
-        <div className="grid gap-5">
+    <div className="flex flex-col justify-between h-full col-span-12 p-5">
+      <div className="pb-5 overflow-y-auto max-h-[70vh] min-h-[50vh]">
+        <div className="flex flex-col gap-5">
           {conversation.messages.map((message, i) => (
             <div
               className={`${
                 message.type === "ai"
-                  ? "justify-self-start w-fit rounded border border-gray-100 px-5 py-3.5 text-gray-800"
+                  ? "self-start w-fit rounded border border-gray-100 px-5 py-3.5 text-gray-800"
                   : "" +
-                    "justify-self-end w-fit bg-slate-100 rounded border border-gray-100 px-5 py-3.5 text-gray-800"
+                    "self-end w-fit bg-slate-100 rounded border border-gray-100 px-5 py-3.5 text-gray-800"
               }`}
               key={i}
             >
@@ -61,7 +61,9 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
                 : "block w-full p-4 pl-4 text-sm text-gray-900 border border-gray-200 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
             }
             placeholder={
-              "Ask " + conversation.document.filename + " anything..."
+              "Ask anything about " +
+              conversation.document.filename.replace(/\.[^/.]+$/, "") +
+              "..."
             }
           />
           {messageStatus === "idle" && (
